@@ -127,7 +127,7 @@ $(document).ready(function () {
             swal("Good job!", "Product successfully added!", "success");
             setTimeout(() => {
               window.location.reload();
-            }, 1000);
+            }, 5000);
           })
           .catch((e) => {
             console.log("Something went wrong! refresh the page.", e);

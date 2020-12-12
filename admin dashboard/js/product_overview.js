@@ -112,7 +112,7 @@ $(document).ready(function () {
       content += "<tr class=" + data.key + ">";
       content += '<td><img class="ads_image" src=' + main_image + "></td>";
       content += "<td  style='font-weight: bold'>" + product_name + "</td>";
-      content += "<td  style='font-weight: bold'>" + product_price + "</td>";
+      content += "<td  style='font-weight: bold'>$" + product_price + "</td>";
       content +=
         '<td><button class="btn-showAdsToUpdate" data-toggle="modal" data-target="#centralModalLg"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit</button></td>';
       content +=

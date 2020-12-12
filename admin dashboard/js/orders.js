@@ -78,7 +78,7 @@ $(document).ready(function () {
       const {
         product_image,
         product_name,
-        product_color,
+        color,
         size,
         quantity,
         name,
@@ -92,7 +92,7 @@ $(document).ready(function () {
       content += "<td>" + counter + "</td>";
       content += '<td><img class="pro_image" src=' + product_image + "></td>";
       content += "<td>" + product_name + "</td>";
-      content += "<td>" + product_color + "</td>";
+      content += "<td>" + color + "</td>";
       content += "<td>" + size + "</td>";
       content += "<td>" + quantity + "</td>";
       content += "<td>" + name + "</td>";
@@ -157,6 +157,13 @@ $(document).ready(function () {
                 .ref("/orders/")
                 .remove()
                 .then(() => {
+                  // clear the table
+                  var node = document.getElementById("ads-table");
+                  while (node.hasChildNodes()) {
+                    node.removeChild(node.lastChild);
+                  }
+                  // show total number of orders
+                  $(".total-num").html("(0 orders)");
                   $.notify("All orders deleted successfully", "success");
                 });
               //document.location.reload(true);
