@@ -1,0 +1,177 @@
+
+* {
+    font-family: 'Open Sans', 'Cairo', 'sans-serif';
+}
+
+:root {
+    --black_color: #242424;
+    --red_color: #cc2121;
+}
+
+/* start side_bar */
+#side_bar {
+    float: left;
+    width: 15%;
+    min-height: 100vh;
+    background-color: var(--black_color);
+    color: white;
+    padding: 10px;
+    position: fixed;
+    z-index: 111
+}
+
+#side_bar #side_bar_title {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#side_bar a {
+    color: white;
+}
+
+#side_bar a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: lightgrey;
+}
+
+#side_bar .glyphicon {
+    color: var(--red_color);
+    margin-right: 10px
+}
+
+#side_bar hr {
+    border-top: 1px solid #515151;
+}
+
+/* end side_bar*/
+
+/* start content */
+#content {
+    width: 85%;
+    overflow-x: hidden;
+    padding: 20px;
+    margin-left: 15%;
+}
+
+#content .arrow-down {
+    width: 0;
+    height: 0;
+    margin-left: 43px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #f8d7da;
+}
+
+#content .alert-warning {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    margin-bottom: 0;
+    margin-top: 10px;
+    border: 0
+}
+
+#content .alert {
+    padding: 15px;
+    border-radius: 4px;
+    width: 370px;
+}
+
+#content #images {
+    display: flex;
+}
+
+#content #product_name,
+#content #product_price {
+    width: 51%;
+}
+
+#content #colors_sizes_wrapper {
+    display: flex;
+}
+
+#content #colors_sizes_wrapper .form-group {
+    margin-right: 100px
+}
+
+#content #colors_sizes_wrapper .form-group input{
+    margin-right: 5px;
+}
+
+#content #add_product_button {
+    background-color: var(--red_color);
+    color: white;
+    border-radius: 20px;
+    padding: 10px 15px;
+    border: 0;
+    transition: .5s all
+}
+
+#content #add_product_button:hover {
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+/* end content */
+
+/* start image input viewer*/
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 100%;
+    max-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-box,
+#img-box1,
+#img-box2,
+#img-box3,
+#img-box4,
+#img-box5 {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    background-image: url(../images/plus.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
+    background-color: #e3e0e0;
+
+}
+
+#img-upload,
+#img-upload1,
+#img-upload2,
+#img-upload3,
+#img-upload4,
+#img-upload5 {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: cover;
+}
+
+.input-group-btn {
+    display: inline;
+    margin-left: 10px;
+}
+
+
+/* end image input viewer*/

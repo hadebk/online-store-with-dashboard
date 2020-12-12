@@ -1,0 +1,131 @@
+* {
+    font-family: 'Open Sans', 'Cairo', 'sans-serif';
+}
+
+:root {
+    --black_color: #242424;
+    --red_color: #cc2121;
+}
+
+/* start side_bar */
+#side_bar {
+    float: left;
+    width: 15%;
+    min-height: 100vh;
+    background-color: var(--black_color);
+    color: white;
+    padding: 10px;
+    position: fixed;
+    z-index: 111
+}
+
+#side_bar #side_bar_title {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#side_bar a {
+    color: white;
+}
+
+#side_bar a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: lightgrey;
+}
+
+#side_bar .glyphicon {
+    color: var(--red_color);
+    margin-right: 10px
+}
+
+#side_bar hr {
+    border-top: 1px solid #515151;
+}
+
+/* end side_bar*/
+
+/* start content */
+#content {
+    width: 85%;
+    overflow-x: hidden;
+    padding: 20px;
+    margin-left: 15%;
+}
+
+.pro_image {
+    width: 100px;
+    height: 120px;
+}
+
+#content .btn-delete,
+#content #btn-delete-all,
+#content .btn-done {
+    padding-left: 18px;
+    padding-right: 18px;
+    border: 0;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    text-transform: none;
+    letter-spacing: .25px;
+    min-width: 60px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    width: auto;
+    background-color: var(--black_color);
+    color: white;
+}
+
+#content #btn-delete-all {
+    margin-bottom: 15px;
+    float: right;
+    height: 35px;
+}
+
+#content .btn-done {
+    margin-top: 5px;
+    background-color: #999;
+    color: #555;
+}
+
+#content .btn-done .glyphicon {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+#content .btn-delete,
+#content .btn-done{
+    width: 100px;
+    height: 35px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 5px
+}
+
+
+#content h4 {
+    float: left;
+    clear: right;
+}
+
+#content .btn-delete .glyphicon,
+#content #btn-delete-all .glyphicon{
+    color: var(--red_color);
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+#content table thead tr th {
+    text-align: center;
+    font-size: 16px;
+}
+
+#content table tbody tr td {
+    vertical-align: middle;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* end content */

@@ -1,0 +1,187 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <title>Products Overview | Hadi Store</title>
+    <!------------->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!--[if lt IE 9]>-->
+    <script src="js/libs/html5shiv.min.js"></script>
+    <script src="js/libs/respond.min.js"></script>
+    <!------------->
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/product_overview.css">
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-storage.js"></script>
+
+</head>
+
+<body>
+
+    <!-- start main div -->
+
+    <!-- start side bar -->
+    <div id="side_bar">
+        <div id="side_bar_title">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            Admin
+        </div>
+        <hr>
+        <div id="side_bar_orders">
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+            <a href="orders.html">Orders</a>
+        </div>
+        <hr>
+        <div id="side_bar_products_overview">
+            <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
+            <a href="product_overview.html">Products</a>
+        </div>
+        <hr>
+        <div id="side_bar_add_new_product">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            <a href="uploade_product.html">Add New Product</a>
+        </div>
+    </div>
+    <!-- end side bar -->
+
+    <!-- start content -->
+    <div id="content">
+        <table id="table-ads" class="table table-fixed">
+            <thead id="table-head">
+                <tr>
+                    <td>Product Photo</td>
+                    <td>Product Name</td>
+                    <td>Product Price</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                    <td>Sold Out</td>
+                </tr>
+            </thead>
+            <tbody id="ads-table">
+            </tbody>
+        </table>
+    </div>
+    <!-- end content -->
+
+    <!-- Start Of Central Modal Small Of Update Product -->
+    <div class="modal fade" id="centralModalLg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+        <!-- Change class .modal-sm to change the size of the modal -->
+        <div class="modal-dialog modal-m" role="document">
+            <div class="modal-content">
+                <!-- modal header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- modal body -->
+                <div class="modal-body">
+                    <div id="box">
+
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" class="form-control" id="ads-name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Product Price</label>
+                            <input type="number" class="form-control" id="ads-price">
+                        </div>
+
+                        <div id="select_S_C">
+                            <div class="form-group">
+                                <label>Colors:</label>
+                                <fieldset>
+                                    <input type="checkbox" class="colors" value="white">
+                                    white
+                                    <span class="glyphicon glyphicon-stop" style="-webkit-text-stroke: 1px black;color: white"></span>
+                                    <br>
+                                    <input type="checkbox" class="colors" value="black">
+                                    black
+                                    <span class="glyphicon glyphicon-stop" style="color:black"></span>
+                                    <br>
+                                    <input type="checkbox" class="colors" value="gray">
+                                    gray
+                                    <span class="glyphicon glyphicon-stop" style="color:gray"></span>
+                                    <br>
+                                    <input type="checkbox" class="colors" value="red">
+                                    red
+                                    <span class="glyphicon glyphicon-stop" style="color:red"></span>
+                                    <br>
+                                    <input type="checkbox" class="colors" value="darkred">
+                                    darkred
+                                    <span class="glyphicon glyphicon-stop" style="color:darkred"></span>
+                                    <br>
+                                    <input type="checkbox" class="colors" value="yellow">
+                                    yellow
+                                    <span class="glyphicon glyphicon-stop" style="color:yellow"></span>
+                                    <br>
+                                    <input type="checkbox" class="colors" value="blue">
+                                    blue
+                                    <span class="glyphicon glyphicon-stop" style="color:blue"></span>
+                                    <br>
+                                    <input type="checkbox" class="colors" value="darkblue">
+                                    darkblue
+                                    <span class="glyphicon glyphicon-stop" style="color:darkblue"></span>
+                                    <br>
+                                    <input type="checkbox" class="colors" value="pink">
+                                    pink
+                                    <span class="glyphicon glyphicon-stop" style="color:pink"></span>
+                                    <br>
+                                    <input type="checkbox" class="colors" value="green">
+                                    green
+                                    <span class="glyphicon glyphicon-stop" style="color:green"></span>
+                                    <br>
+                                    <input type="checkbox" class="colors" value="darkgreen">
+                                    darkgreen
+                                    <span class="glyphicon glyphicon-stop" style="color:darkgreen"></span>
+                                    <br>
+                                </fieldset>
+                            </div>
+                            <div class="form-group">
+                                <label>Size:</label>
+                                <fieldset>
+                                    <input type="checkbox" class="size" value="S">S<br>
+                                    <input type="checkbox" class="size" value="M">M<br>
+                                    <input type="checkbox" class="size" value="L">L<br>
+                                    <input type="checkbox" class="size" value="XL">XL<br>
+                                    <input type="checkbox" class="size" value="XXL">XXL<br>
+                                    <input type="checkbox" class="size" value="XXXL">XXXL<br>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="btn-update">Save Change</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Of Central Modal Small Of Update Product -->
+
+    <!-- end main div -->
+
+
+    <script src="js/libs/query.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/libs/bootstrap.min.js"></script>
+    <script src="js/libs/notify.min.js"></script>
+    <script src="js/product_overview.js"></script>
+</body>
+
+</html>

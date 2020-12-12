@@ -1,0 +1,149 @@
+@import url(https://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
+@font-face {
+    font-family: "HelveticaNeueLTArabic";
+    src: url(../fonts/ARGFX.CO_HelveticaNeueLTArabic/HelveticaNeueLTArabic-Roman_0.TTF);
+}
+
+* {
+    font-family: 'Open Sans', 'Cairo', 'sans-serif';
+}
+
+:root {
+    --black_color: #242424;
+    --red_color: #cc2121;
+}
+
+/* start side_bar */
+#side_bar {
+    float: left;
+    width: 15%;
+    min-height: 100vh;
+    background-color: var(--black_color);
+    color: white;
+    padding: 10px;
+    position: fixed;
+    z-index: 111
+}
+
+#side_bar #side_bar_title {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#side_bar a {
+    color: white;
+}
+
+#side_bar a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: lightgrey;
+}
+
+#side_bar .glyphicon {
+    color: var(--red_color);
+    margin-right: 10px
+}
+
+#side_bar hr {
+    border-top: 1px solid #515151;
+}
+
+/* end side_bar*/
+
+/* start content */
+#content {
+    width: 85%;
+    overflow-x: hidden;
+    padding: 20px;
+    margin-left: 15%;
+}
+
+/* start table */
+
+#content table thead {
+    z-index: 11
+}
+
+#content table thead tr td {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+#content table tbody tr td {
+    border-bottom: 1px solid var(--black_color);
+    vertical-align: middle;
+    text-align: center;
+    font-size: 15px;
+}
+
+#content #table-head {
+    background-color: var(--black_color);
+    color: white;
+}
+
+#content #ads-table .btn-showAdsToUpdate,
+#content #ads-table .btn-delete,
+#content #ads-table .btn-sold-out {
+    padding-left: 18px;
+    padding-right: 18px;
+    border: 0;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    text-transform: none;
+    letter-spacing: .25px;
+    min-width: 60px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    height: 35px;
+    background-color: var(--black_color);
+    color: white;
+}
+
+#content #ads-table .btn-sold-out {
+    background-color: #999;
+    color: #555;
+}
+
+#content #table-ads .btn-sold-out .glyphicon{
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+#content #ads-table .ads_image {
+    width: 100px;
+    height: 120px;
+    margin: 0;
+    padding: 0;
+}
+
+#content #table-ads .btn-delete .glyphicon, 
+#content #table-ads .btn-showAdsToUpdate .glyphicon {
+    color: var(--red_color);
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+/* end table */
+
+/* end content */
+/* start modal */
+
+.modal #select_S_C {
+    display: flex;
+}
+
+.modal #select_S_C .form-group {
+    margin-right: 100px
+}
+
+.modal .modal-footer button {
+    background-color: var(--black_color);
+    color: white;
+}
+
+/* end modal */
