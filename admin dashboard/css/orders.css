@@ -7,6 +7,11 @@
     --red_color: #cc2121;
 }
 
+button:focus{
+    outline: 0;
+    border: 0;
+}
+
 /* start side_bar */
 #side_bar {
     float: left;
@@ -58,6 +63,7 @@
 .pro_image {
     width: 100px;
     height: 120px;
+    object-fit: cover;
 }
 
 #content .btn-delete,

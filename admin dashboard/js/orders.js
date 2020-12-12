@@ -1,16 +1,16 @@
 $(document).ready(function () {
   (function () {
     // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     var firebaseConfig = {
-      apiKey: "AIzaSyChTzQs0nMrFFNIZfacnapUARpGCP-Hb_w",
-      authDomain: "hazzy-store.firebaseapp.com",
-      databaseURL: "https://hazzy-store.firebaseio.com",
-      projectId: "hazzy-store",
-      storageBucket: "hazzy-store.appspot.com",
-      messagingSenderId: "181223236649",
-      appId: "1:181223236649:web:7e6163667295687e",
+      apiKey: "AIzaSyDMUOixvFatJdyfG59AHnSpA-QfWV-bvIY",
+      authDomain: "hadi-online-store.firebaseapp.com",
+      projectId: "hadi-online-store",
+      storageBucket: "hadi-online-store.appspot.com",
+      messagingSenderId: "561361601510",
+      appId: "1:561361601510:web:faf660a66ff8fd92938c27",
+      measurementId: "G-2CTRH4XP7W",
     };
-
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
@@ -20,11 +20,16 @@ $(document).ready(function () {
       .ref("orders")
       .orderByKey()
       .on("value", function (snapshot) {
-        if (snapshot.exists()) { 
+        if (snapshot.exists()) {
           var content = "";
           var counter = 1;
           snapshot.forEach((data) => {
-            content = loadOrders(data, counter);
+            // clear the table to prevent the repeat of rows
+            var node = document.getElementById("ads-table");
+            while (node.hasChildNodes()) {
+              node.removeChild(node.lastChild);
+            }
+            content = loadOrders(data, counter, content);
             counter++;
           });
 
@@ -68,13 +73,7 @@ $(document).ready(function () {
      * load data (orders) to table
      * @params [data]: snapshot from database, that have all orders (response)
      */
-    function loadOrders(data, counter) {
-      // clean the table first to add new values
-      var node = document.getElementById("ads-table");
-      while (node.hasChildNodes()) {
-        node.removeChild(node.lastChild);
-      }
-
+    function loadOrders(data, counter, content) {
       // destructuring data of the order
       const {
         product_image,
@@ -117,7 +116,6 @@ $(document).ready(function () {
       $(".btn-delete").click(function () {
         // get id of order, that was stored in parent's 'html class'
         var key_order = $(this).parents(":eq(1)").attr("class");
-        console.log("key:" + key_order);
         // get url
         firebase
           .database()
@@ -161,7 +159,7 @@ $(document).ready(function () {
                 .then(() => {
                   $.notify("All orders deleted successfully", "success");
                 });
-              document.location.reload(true);
+              //document.location.reload(true);
             } else {
               console.log("There are no orders to be deleted ):");
             }
@@ -178,74 +176,51 @@ $(document).ready(function () {
      *         2- mark as not done back
      * Usage of Done button: admin acn click it when he sent the order to the client (just as a flag says, this order sent).
      */
+
     function handelEventOfDoneButton() {
-      // add click event to done button
+      // sold out button action
       $(".btn-done").click(function () {
         var _this = this;
+        // get product key
+        var key_product = $(_this).parents(":eq(1)").attr("class");
+        $(_this).css("background-color") == "rgb(153, 153, 153)"
+          ? markAsDone(_this, key_product) // activate 'Done' button
+          : markAsNotDone(_this, key_product); // deactivate 'Don' button
+      });
+    }
 
-        // get id of this order, that was stored in parent's 'html class'
-        var key_order = $(this).parents(":eq(1)").attr("class");
+    //order not marked as done, so make it done
+    function markAsDone(element, key_product) {
+      var updateDoneValue = {
+        done: true,
+      };
+      firebase
+        .database()
+        .ref("orders/")
+        .child(key_product)
+        .update(updateDoneValue);
+      // change the color of button
+      $(element).css({
+        "background-color": "#d4edda",
+        color: "#155724",
+      });
+    }
 
-        // if true => order not marked as done, so make it done
-        // if false => order already marked as done, so make it not done
-        if ($(_this).css("background-color") == "rgb(153, 153, 153)") {
-          // mark order as done
-          firebase
-            .database()
-            .ref("orders")
-            .orderByKey()
-            .equalTo(key_order)
-            .on("value", function (snapshot) {
-              if (snapshot.exists()) {
-                var updateDoneValue = {
-                  done: true,
-                };
-                firebase
-                  .database()
-                  .ref("orders/")
-                  .child(key_order)
-                  .update(updateDoneValue);
-                // change the color of button
-                $(_this).css({
-                  "background-color": "#d4edda",
-                  color: "#155724",
-                });
-                console.log("Marker as done!");
-                window.location.reload();
-              } else {
-                console.log("There is no order to update it's done status ):");
-              }
-            });
-        } else if ($(_this).css("background-color") == "rgb(212, 237, 218)") {
-          // mark order as not done
-          firebase
-            .database()
-            .ref("orders")
-            .orderByKey()
-            .equalTo(key_order)
-            .on("value", function (snapshot) {
-              if (snapshot.exists()) {
-                var updateDoneValue_ = {
-                  done: false,
-                };
-                firebase
-                  .database()
-                  .ref("orders/")
-                  .child(key_order)
-                  .update(updateDoneValue_);
-                // change the color of button
-                $(_this).css({
-                  "background-color": "#999",
-                  color: "#555",
-                });
-                console.log("Marker as not done!");
-                window.location.reload();
-              } else {
-                console.log("There is no order to update it's done status ):");
-              }
-            });
-        }
-      }); // end of done click event
+    // order already marked as done, so make it not done
+    function markAsNotDone(element, key_product) {
+      var updateDoneValue_ = {
+        done: false,
+      };
+      firebase
+        .database()
+        .ref("orders/")
+        .child(key_product)
+        .update(updateDoneValue_);
+      // change the color of button
+      $(element).css({
+        "background-color": "#999",
+        color: "#555",
+      });
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

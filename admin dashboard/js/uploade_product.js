@@ -1,14 +1,15 @@
 $(document).ready(function () {
   (function () {
     // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     var firebaseConfig = {
-      apiKey: "AIzaSyChTzQs0nMrFFNIZfacnapUARpGCP-Hb_w",
-      authDomain: "hazzy-store.firebaseapp.com",
-      databaseURL: "https://hazzy-store.firebaseio.com",
-      projectId: "hazzy-store",
-      storageBucket: "hazzy-store.appspot.com",
-      messagingSenderId: "181223236649",
-      appId: "1:181223236649:web:7e6163667295687e",
+      apiKey: "AIzaSyDMUOixvFatJdyfG59AHnSpA-QfWV-bvIY",
+      authDomain: "hadi-online-store.firebaseapp.com",
+      projectId: "hadi-online-store",
+      storageBucket: "hadi-online-store.appspot.com",
+      messagingSenderId: "561361601510",
+      appId: "1:561361601510:web:faf660a66ff8fd92938c27",
+      measurementId: "G-2CTRH4XP7W",
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
@@ -124,9 +125,12 @@ $(document).ready(function () {
           })
           .then(function () {
             swal("Good job!", "Product successfully added!", "success");
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
           })
           .catch((e) => {
-            console.log("Something went wrong!", e);
+            console.log("Something went wrong! refresh the page.", e);
           });
       } else {
         // Not all data were provided so display the modal warning

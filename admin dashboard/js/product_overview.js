@@ -1,14 +1,15 @@
 $(document).ready(function () {
   (function () {
     // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     var firebaseConfig = {
-      apiKey: "AIzaSyChTzQs0nMrFFNIZfacnapUARpGCP-Hb_w",
-      authDomain: "hazzy-store.firebaseapp.com",
-      databaseURL: "https://hazzy-store.firebaseio.com",
-      projectId: "hazzy-store",
-      storageBucket: "hazzy-store.appspot.com",
-      messagingSenderId: "181223236649",
-      appId: "1:181223236649:web:7e6163667295687e",
+      apiKey: "AIzaSyDMUOixvFatJdyfG59AHnSpA-QfWV-bvIY",
+      authDomain: "hadi-online-store.firebaseapp.com",
+      projectId: "hadi-online-store",
+      storageBucket: "hadi-online-store.appspot.com",
+      messagingSenderId: "561361601510",
+      appId: "1:561361601510:web:faf660a66ff8fd92938c27",
+      measurementId: "G-2CTRH4XP7W",
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
@@ -54,7 +55,12 @@ $(document).ready(function () {
         if (snapshot.exists()) {
           var content = "";
           snapshot.forEach(function (data) {
-            content = loadAllProducts(data);
+            // clear the table to prevent the repeat of rows
+            var node = document.getElementById("ads-table");
+            while (node.hasChildNodes()) {
+              node.removeChild(node.lastChild);
+            }
+            content = loadAllProducts(data, content);
           });
           // after load all products => append them to table
           $("#ads-table").append(content);
@@ -80,7 +86,7 @@ $(document).ready(function () {
           /**
            * Button 'Sold Out' in table, when click it, the product will be marked as 'Sold Out'
            */
-          soldOutButton();
+          soldOutButtonAction();
 
           ///////////////////////////////////////////////////////////////////////////////
 
@@ -89,11 +95,6 @@ $(document).ready(function () {
           ///////////////////////////////////////////////////////////////////////////////
         } else {
           console.log("There no product yet to be shown!");
-          // empty the table again.
-          var node = document.getElementById("ads-table");
-          while (node.hasChildNodes()) {
-            node.removeChild(node.lastChild);
-          }
         }
       }); // end of show all products
 
@@ -104,20 +105,14 @@ $(document).ready(function () {
      * load data (products) to table
      * @params [data]: snapshot from database, that have all products (response)
      */
-    function loadAllProducts(data) {
-      // clean the table first to add new values
-      var node = document.getElementById("ads-table");
-      while (node.hasChildNodes()) {
-        node.removeChild(node.lastChild);
-      }
-
+    function loadAllProducts(data, content) {
       // destructuring data of the product
       const { product_name, product_price, main_image } = data.val();
 
       content += "<tr class=" + data.key + ">";
       content += '<td><img class="ads_image" src=' + main_image + "></td>";
-      content += "<td>" + product_name + "</td>";
-      content += "<td>" + product_price + "</td>";
+      content += "<td  style='font-weight: bold'>" + product_name + "</td>";
+      content += "<td  style='font-weight: bold'>" + product_price + "</td>";
       content +=
         '<td><button class="btn-showAdsToUpdate" data-toggle="modal" data-target="#centralModalLg"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit</button></td>';
       content +=
@@ -137,21 +132,6 @@ $(document).ready(function () {
      * This function will fire , when click on 'Save Changes' button in Modal
      */
     function saveChangesButtonInModal() {
-      // btn update action (in modal)
-      function updateProduct(name, price, colors, sizes) {
-        let postData = {
-          product_name: name,
-          product_price: price,
-          colors: colors,
-          sizes: sizes,
-        };
-        return firebase
-          .database()
-          .ref("products/")
-          .child(key_product)
-          .update(postData);
-      } // end of update
-
       // action update button in modal
       const saveChangesButton = document.getElementById("btn-update");
       saveChangesButton.addEventListener("click", (e) => {
@@ -177,9 +157,24 @@ $(document).ready(function () {
         }
         // then update the product in DB
         updateProduct(name, price, arr_colors, arr_sizes);
-        window.location.reload();
+        //window.location.reload();
       }); //end of action update button in modal
     }
+
+    //  action of update product (in modal)
+    function updateProduct(name, price, colors, sizes) {
+      let postData = {
+        product_name: name,
+        product_price: price,
+        colors: colors,
+        sizes: sizes,
+      };
+      return firebase
+        .database()
+        .ref("products/")
+        .child(key_product)
+        .update(postData);
+    } // end of update
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -313,38 +308,40 @@ $(document).ready(function () {
                   // File deleted successfully
                   console.log("Main image was deleted successfully!");
                 })
-                .catch(function (error) {
+                .then(() => {
+                  // 2- Create a reference to the secondary of images to delete them
+                  for (var i = 0; i < urls_secondaryImages.length; i++) {
+                    var desertRef = storage.refFromURL(urls_secondaryImages[i]);
+                    // Delete the file
+                    desertRef
+                      .delete()
+                      .then(function () {
+                        // File deleted successfully
+                        console.log(
+                          "Secondary image was deleted successfully!"
+                        );
+                      })
+                      .catch(function (error) {
+                        console.log(error);
+                      });
+                  }
+                })
+                .then(() => {
+                  // 3- then delete the product itself from realtime DB
+                  firebase
+                    .database()
+                    .ref("/products/" + productKey)
+                    .remove()
+                    .then(() => {
+                      $.notify("Product was deleted successfully!", "success");
+                    })
+                    .catch((e) => {
+                      console.log(e);
+                    });
+                })
+                .catch((error) => {
                   console.log(error);
                 });
-
-              // 2- Create a reference to the secondary of images to delete them
-              for (var i = 0; i < urls_secondaryImages.length; i++) {
-                var desertRef = storage.refFromURL(urls_secondaryImages[i]);
-                // Delete the file
-                desertRef
-                  .delete()
-                  .then(function () {
-                    // File deleted successfully
-                    console.log("Secondary image was deleted successfully!");
-                  })
-                  .catch(function (error) {
-                    console.log(error);
-                  });
-              }
-
-              // 3- then delete the product itself from realtime DB
-              firebase
-                .database()
-                .ref("/products/" + productKey)
-                .remove()
-                .then(() => {
-                  $.notify("Product was deleted successfully!", "success");
-                });
-
-              /**
-               * TODO: prevent this case:
-               * when delete a product, the table append the rest data agin to the table beside all old data (include deleted data)
-               */
             } else {
               console.log("There is no product to be deleted ):");
             }
@@ -363,79 +360,50 @@ $(document).ready(function () {
      * Usage of Sold Out button: when click on it, the product will be marked as not available in store,
      * so the user can see the product but he can't make an order.
      */
-    function soldOutButton() {
+    function soldOutButtonAction() {
       // sold out button action
       $(".btn-sold-out").click(function () {
         var _this = this;
         // get product key
-        var key_product = $(this).parents(":eq(1)").attr("class");
+        var key_product = $(_this).parents(":eq(1)").attr("class");
+        $(_this).css("background-color") == "rgb(153, 153, 153)"
+          ? markAsSoldOut(_this, key_product) // activate 'Sold Out' button
+          : markAsNotSoldOut(_this, key_product); // deactivate 'Sold Out' button
+      });
+    }
 
-        // if true => product not marked as sold out, so make it sold out
-        // if false => product already marked as sold out, so make it not sold out
-        if ($(_this).css("background-color") == "rgb(153, 153, 153)") {
-          // mark product as sold out
-          firebase
-            .database()
-            .ref("products")
-            .orderByKey()
-            .equalTo(key_product)
-            .on("value", function (snapshot) {
-              if (snapshot.exists()) {
-                var sold_out_new_value = {
-                  sold_out: true,
-                };
-                firebase
-                  .database()
-                  .ref("products/")
-                  .child(key_product)
-                  .update(sold_out_new_value);
-                // change the color of button
-                $(_this).css({
-                  "background-color": "#f8d7da",
-                  color: "#721c24",
-                });
-                /**
-                 * TODO: prevent this case:
-                 * when click sold out button, the table append the data agin to the table beside all old data
-                 */
-                window.location.reload();
-              } else {
-                console.log("There is no product to be updated ):");
-              }
-            });
-        } else if ($(_this).css("background-color") == "rgb(248, 215, 218)") {
-          // mark product as not sold out
-          firebase
-            .database()
-            .ref("products")
-            .orderByKey()
-            .equalTo(key_product)
-            .on("value", function (snapshot) {
-              if (snapshot.exists()) {
-                var sold_out_new_value = {
-                  sold_out: false,
-                };
-                firebase
-                  .database()
-                  .ref("products/")
-                  .child(key_product)
-                  .update(sold_out_new_value);
-                // change the color of button
-                $(_this).css({
-                  "background-color": "#999",
-                  color: "#555",
-                });
-                /**
-                 * TODO: prevent this case:
-                 * when click sold out button, the table append the data agin to the table beside all old data
-                 */
-                window.location.reload();
-              } else {
-                console.log("There is no product to be updated ):");
-              }
-            });
-        }
-      }); // end of done click event
+    //product not marked as sold out, so make it sold out
+    function markAsSoldOut(element, key_product) {
+      var sold_out_new_value = {
+        sold_out: true,
+      };
+      firebase
+        .database()
+        .ref("products/")
+        .child(key_product)
+        .update(sold_out_new_value);
+      // change the color of button
+      $(element).css({
+        "background-color": "#f8d7da",
+        color: "#721c24",
+      });
+    }
+
+    // product already marked as sold out, so make it not sold out
+    function markAsNotSoldOut(element, key_product) {
+      var sold_out_new_value = {
+        sold_out: false,
+      };
+      firebase
+        .database()
+        .ref("products/")
+        .child(key_product)
+        .update(sold_out_new_value);
+      // change the color of button
+      $(element).css({
+        "background-color": "#999",
+        color: "#555",
+      });
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
