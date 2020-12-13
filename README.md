@@ -2,7 +2,7 @@
 
 ### Online store
 
-Client app preview: https://hadi-store.netlify.app
+Client app preview: https://hadi-store.netlify.app  
 Owner dashboard preview: https://hadi-store-dashboard.netlify.app/orders.html
 
 - Sell clothes online and any user can make an order + admin dashboard to the owner.
