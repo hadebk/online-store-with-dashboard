@@ -9,5 +9,5 @@ Owner dashboard preview: https://hadi-store-dashboard.netlify.app/orders.html
 - The user can check the product and make an order.
 - In addition to the control panel (just for one user) helps the owner to add, update and delete product details, and receive orders from users in addition to other features.
 
-Frontend: JS, HTML, CSS.
+Frontend: JS, HTML, CSS.  
 Backend: Firebase web using JS.
