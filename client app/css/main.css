@@ -124,6 +124,15 @@ red color in page: #d1211d;
 
 /* mobile screen */
 @media (max-width: 767px) {
+
+    #product_section #title{
+        font-size: 24px;
+    }
+
+    .take-look-title{
+        font-size: 24px !important;
+    }
+
     #cover_box {
         text-align: center;
         width: 50%;
@@ -353,9 +362,6 @@ red color in page: #d1211d;
     font-size: 15px;
 }
 
-/* tablet screen */
-@media (min-width: 768px) and (max-width: 991px) {}
-
 /* mobile screen */
 @media (max-width: 767px) {
 
@@ -407,6 +413,10 @@ red color in page: #d1211d;
     color: white;
     -webkit-text-stroke: 1px #000;
 
+}
+
+.swal2-styled.swal2-confirm{
+    background-color: #d1211d !important;
 }
 
 

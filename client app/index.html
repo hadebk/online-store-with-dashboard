@@ -1,395 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>Shop | Hadi Store</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>Shop | Hadi Store</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon-precomposed" href="images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" href="images/favicon.ico" type="image/x-icon">
 
-    <!--===========================================================================================-->
-    <link rel="stylesheet" href="vendor/OwlCarousel2-2.3.4/owl.carousel.min.css" />
-    <!--===========================================================================================-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <!--===========================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <!--===========================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===========================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-    <!--===========================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <!--===========================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-    <!--===========================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <!--===========================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
-    <!--===========================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/MagnificPopup/magnific-popup.css">
-    <!--===========================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <!--===============================================================================================-->
-    <!-- firebase -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-storage.js"></script>
-    <!--===============================================================================================-->
-</head>
+        <!--===========================================================================================-->
+        <link rel="stylesheet" href="vendor/OwlCarousel2-2.3.4/owl.carousel.min.css" />
+        <!--===========================================================================================-->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <!--===========================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+        <!--===========================================================================================-->
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        <!--===========================================================================================-->
+        <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+        <!--===========================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+        <!--===========================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+        <!--===========================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+        <!--===========================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+        <!--===========================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/MagnificPopup/magnific-popup.css">
+        <!--===========================================================================================-->
+        <link rel="stylesheet" type="text/css" href="css/util.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <!--===============================================================================================-->
+        <!-- firebase -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-storage.js"></script>
+        <!--===============================================================================================-->
+    </head>
 
-<body class="animsition">
+    <body class="animsition">
 
-    <!-- Slider -->
-    <section class="section-slide">
-        <div class="wrap-slick1">
-            <div class="slick1">
-                <div class="item-slick1" style="background-image: url(images/cover-2.jpg);">
-                    <div class="container h-full">
-                        <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+        <!-- Slider -->
+        <section class="section-slide">
+            <div class="wrap-slick1">
+                <div class="slick1">
+                    <div class="item-slick1" style="background-image: url(images/cover-2.jpg);">
+                        <div class="container h-full">
+                            <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 
-                            <div id="cover_box">
+                                <div id="cover_box">
 
-                                <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="900">
-                                    <img src="images/logo-red.png" id="logo_img">
-                                </div>
-
-                                <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="600">
-                                    <h2 class="ltext-201 cl2 p-t-19 p-b-15 respon1">
-                                        Hadi
-                                    </h2>
-                                </div>
-
-                                <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="300">
-                                    <span class="ltext-201 cl2 respon2" style="font-size: 25px">
-                                        <i class="fa fa-quote-left"></i>
-                                        We can change the whole world
-                                        <i class="fa fa-quote-right"></i>
-                                    </span>
-                                </div>
-
-                                <div class="flex-w p-b-10 order-btn layer-slick1 animated visible-false" data-appear="fadeInLeft" data-delay="1200">
-                                    <div class="flex-w flex-m" style="max-width: 100%;">
-                                        <button class="p-lr-15" id="button-shopnow">
-                                            SHOP NOW
-                                            <i class="fa fa-chevron-down" style="margin-left: 5px"></i>
-                                        </button>
+                                    <div class="layer-slick1 animated visible-false" data-appear="fadeInDown"
+                                        data-delay="900">
+                                        <img src="images/logo-red.png" id="logo_img">
                                     </div>
+
+                                    <div class="layer-slick1 animated visible-false" data-appear="fadeInDown"
+                                        data-delay="600">
+                                        <h2 class="ltext-201 cl2 p-t-19 p-b-15 respon1">
+                                            Hadi
+                                        </h2>
+                                    </div>
+
+                                    <div class="layer-slick1 animated visible-false" data-appear="fadeInDown"
+                                        data-delay="300">
+                                        <span class="ltext-201 cl2 respon2" style="font-size: 25px">
+                                            <i class="fa fa-quote-left"></i>
+                                            We can change the whole world
+                                            <i class="fa fa-quote-right"></i>
+                                        </span>
+                                    </div>
+
+                                    <div class="flex-w p-b-10 order-btn layer-slick1 animated visible-false"
+                                        data-appear="fadeInLeft" data-delay="1200">
+                                        <div class="flex-w flex-m" style="max-width: 100%;">
+                                            <button class="p-lr-15" id="button-shopnow">
+                                                SHOP NOW
+                                                <i class="fa fa-chevron-down" style="margin-left: 5px"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Product overview-->
-    <section class="bg0 p-t-23 " id="product_section">
-        <div class="container">
-            <div class="p-b-10">
-                <h3 class="ltext-103" id="title">
-                    Product Overview
-                </h3>
-            </div>
-
-            <!-- show product -->
-            <div class="row isotope-grid products-box" id="products-box">
-
-            </div>
-            <hr class="seperater">
-        </div>
-    </section>
-
-    <!-- video -->
-    <section class="bg0 p-t-23 " style="padding-bottom: 35px" id="product_slider">
-        <div class="container">
-            <div class="p-b-10">
-                <h3 class="ltext-103" id="title" style="margin: 15px 0 30px;text-align: center">
-                    <i class="fa fa-quote-left"></i>
-                    be great, be one of our team
-                    <i class="fa fa-quote-right"></i>
-                </h3>
-            </div>
-            <div class="embed-responsive embed-responsive-16by9">
-                <video controls autoplay loop muted>
-                    <source src="images/WhatsApp%20Video%202019-09-27%20at%208.03.55%20PM.mp4" type="video/mp4"></video>
-            </div>
-            <hr class="seperater2">
-        </div>
-    </section>
-
-    <!-- Product Slider -->
-    <section class="bg0 p-t-23 " style="padding-bottom: 45px" id="product_slider">
-        <div class="container">
-            <div class="p-b-10">
-                <h3 class="ltext-103" id="title" style="margin: 15px 0 30px;">
-                    take a look
-                </h3>
-            </div>
-            <div class="owl-carousel owl-theme">
-                <div> <img src="images/slider-1.jpg"> </div>
-                <div> <img src="images/slider-2.jpg"> </div>
-                <div> <img src="images/slider-3.jpg"> </div>
-                <div> <img src="images/slider-4.jpg"> </div>
-                <div> <img src="images/slider-5.jpg"> </div>
-                <div> <img src="images/slider-6.jpg"> </div>
-                <div> <img src="images/slider-7.jpg"> </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg3 p-t-75 p-b-32" id="footer">
-        <div class="container">
-            <div class="row">
-
-                <!-- get in touch -->
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 p-b-50 get-in-touch">
-                    <h4 class="stext-301 cl0 p-b-30" style="font-size: 30px">
-                        GET IN TOUCH
-                    </h4>
-
-                    <p class="stext-107 cl7">
-                        <span><img src="images/icons/001-email.png"></span>
-                        hadi.store@gmail.com
-                    </p>
-
-                    <p class="stext-107 cl7">
-                        <span><img src="images/icons/003-placeholder.png"></span>
-                        Germany, Berlin
-                    </p>
-
+        <!-- Product overview-->
+        <section class="bg0 p-t-23 " id="product_section">
+            <div class="container">
+                <div class="p-b-10">
+                    <h3 class="ltext-103" id="title">
+                        Product Overview
+                    </h3>
                 </div>
 
-                <!-- footer right side -->
-                <div id="footer_right_box" class="col-xs-12 col-sm-12 col-md-6 col-lg-8 p-b-50">
-
-                    <div class="layer-slick1">
-                        <img src="images/logo-red.png" id="logo_img">
-                    </div>
-
-                    <div class="layer-slick1">
-                        <h4 class="ltext-201 p-t-19 p-b-43 respon1" style="color: white;font-size: 40px">
-                            Hadi
-                        </h4>
-                    </div>
-
-                    <div class="right-side">
-                        <div><a href="#"><img src="images/icons/007-instagram.png"></a></div>
-                        <div><a href="#"><img src="images/icons/006-facebook.png"></a></div>
-                        <div><a href="#"><img src="images/icons/008-youtube.png"></a></div>
-                    </div>
+                <!-- show product -->
+                <div class="row isotope-grid products-box" id="products-box">
 
                 </div>
-
+                <hr class="seperater">
             </div>
-            <hr style="border-top: 1px solid #555;padding-bottom: 20px">
+        </section>
 
-            <!-- copyrights -->
-            <div>
-                <p class="stext-107 cl6 txt-center">
-                    <!--                     //Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0-->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!--                     //Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                </p>
+        <!-- Product Slider -->
+        <section class="bg0 p-t-23 " style="padding-bottom: 45px" id="product_slider">
+            <div class="container">
+                <div class="p-b-10">
+                    <h3 class="ltext-103 take-look-title" id="title" style="margin: 15px 0 30px;">
+                        take a look
+                    </h3>
+                </div>
+                <div class="owl-carousel owl-theme">
+                    <div> <img src="images/slider-1.jpg"> </div>
+                    <div> <img src="images/slider-2.jpg"> </div>
+                    <div> <img src="images/slider-3.jpg"> </div>
+                    <div> <img src="images/slider-4.jpg"> </div>
+                    <div> <img src="images/slider-5.jpg"> </div>
+                    <div> <img src="images/slider-6.jpg"> </div>
+                    <div> <img src="images/slider-7.jpg"> </div>
+                </div>
             </div>
+        </section>
 
-        </div>
-    </footer>
-
-    <!-- Back to top -->
-    <div class="btn-back-to-top" id="goToTopButton">
-        <span class="symbol-btn-back-to-top">
-            <i class="zmdi zmdi-chevron-up"></i>
-        </span>
-    </div>
-
-    <!--=====================================================================================-->
-
-    <!-- Modal1 -->
-    <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
-        <div class="overlay-modal1 js-hide-modal1"></div>
-
-        <div class="container">
-            <div class="p-t-60 p-b-30 p-lr-15-lg how-pos3-parent" id="modal-body">
-                <button class="how-pos3 hov3 trans-04 js-hide-modal1">
-                    <img src="images/icons/icon-close.png" alt="CLOSE">
-                </button>
-
+        <!-- Footer -->
+        <footer class="bg3 p-t-75 p-b-32" id="footer">
+            <div class="container">
                 <div class="row">
-                    <!-- left side (images) -->
-                    <div class="col-md-6 col-lg-7 p-b-30">
-                        <div class="p-l-25 p-r-30 p-lr-0-lg">
-                            <div class="wrap-slick3 flex-sb flex-w" id="wrap-slick3">
-                            </div>
-                        </div>
+
+                    <!-- get in touch -->
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 p-b-50 get-in-touch">
+                        <h4 class="stext-301 cl0 p-b-30" style="font-size: 30px">
+                            GET IN TOUCH
+                        </h4>
+
+                        <p class="stext-107 cl7">
+                            <span><img src="images/icons/001-email.png"></span>
+                            hadi.store@gmail.com
+                        </p>
+
+                        <p class="stext-107 cl7">
+                            <span><img src="images/icons/003-placeholder.png"></span>
+                            Germany, Berlin
+                        </p>
+
                     </div>
 
-                    <!-- right side (data & form) -->
-                    <div class="col-md-6 col-lg-5 p-b-30">
-                        <div class="p-r-50 p-t-5 p-lr-0-lg">
-                            <h4 class="mtext-105 cl2 js-name-detail title"></h4>
-                            <hr class="hr-modal">
-                            <span class="mtext-106 cl2 price"></span>
-                            <hr class="hr-modal">
+                    <!-- footer right side -->
+                    <div id="footer_right_box" class="col-xs-12 col-sm-12 col-md-6 col-lg-8 p-b-50">
 
-                            <!-- inputs box -->
-                            <div class="input-groups">
+                        <div class="layer-slick1">
+                            <img src="images/logo-red.png" id="logo_img">
+                        </div>
 
-                                <!-- color input -->
-                                <div class="flex-w flex-r-m p-b-10">
-                                    <div class="size-203 flex-c-m respon6 label">
-                                        Color
-                                    </div>
+                        <div class="layer-slick1">
+                            <h4 class="ltext-201 p-t-19 p-b-43 respon1" style="color: white;font-size: 40px">
+                                Hadi
+                            </h4>
+                        </div>
 
-                                    <div class="size-204 respon6-next">
-                                        <div class="custom-radios" id="colors-radio">
+                        <div class="right-side">
+                            <div><a href="#"><img src="images/icons/007-instagram.png"></a></div>
+                            <div><a href="#"><img src="images/icons/006-facebook.png"></a></div>
+                            <div><a href="#"><img src="images/icons/008-youtube.png"></a></div>
+                        </div>
 
-                                        </div>
-                                        <div class="alert alert-danger custom-alert">Please select one color</div>
-                                    </div>
+                    </div>
+
+                </div>
+                <hr style="border-top: 1px solid #555;padding-bottom: 20px">
+
+                <!-- copyrights -->
+                <div>
+                    <p class="stext-107 cl6 txt-center">
+                        <!--                     //Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0-->
+                        Copyright &copy;<script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved | This template is made with <i class="fa fa-heart-o"
+                            aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!--                     //Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+
+            </div>
+        </footer>
+
+        <!-- Back to top -->
+        <div class="btn-back-to-top" id="goToTopButton">
+            <span class="symbol-btn-back-to-top">
+                <i class="zmdi zmdi-chevron-up"></i>
+            </span>
+        </div>
+
+        <!--=====================================================================================-->
+
+        <!-- Modal1 -->
+        <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
+            <div class="overlay-modal1 js-hide-modal1"></div>
+
+            <div class="container">
+                <div class="p-t-60 p-b-30 p-lr-15-lg how-pos3-parent" id="modal-body">
+                    <button class="how-pos3 hov3 trans-04 js-hide-modal1">
+                        <img src="images/icons/icon-close.png" alt="CLOSE">
+                    </button>
+
+                    <div class="row">
+                        <!-- left side (images) -->
+                        <div class="col-md-6 col-lg-7 p-b-30">
+                            <div class="p-l-25 p-r-30 p-lr-0-lg">
+                                <div class="wrap-slick3 flex-sb flex-w" id="wrap-slick3">
                                 </div>
+                            </div>
+                        </div>
 
-                                <!-- quantity steper -->
-                                <div class="flex-w flex-r-m p-b-10">
-                                    <div class="size-203 flex-c-m respon6 label">
-                                        Quantity
-                                    </div>
-                                    <div class="size-204 flex-w flex-m respon6-next">
-                                        <!-- quantity steper -->
-                                        <div class="wrap-num-product flex-w m-r-20 m-tb-10">
-                                            <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-                                                <i class="fs-16 zmdi zmdi-minus"></i>
+                        <!-- right side (data & form) -->
+                        <div class="col-md-6 col-lg-5 p-b-30">
+                            <div class="p-r-50 p-t-5 p-lr-0-lg">
+                                <h4 class="mtext-105 cl2 js-name-detail title"></h4>
+                                <hr class="hr-modal">
+                                <span class="mtext-106 cl2 price"></span>
+                                <hr class="hr-modal">
+
+                                <!-- inputs box -->
+                                <div class="input-groups">
+
+                                    <!-- color input -->
+                                    <div class="flex-w flex-r-m p-b-10">
+                                        <div class="size-203 flex-c-m respon6 label">
+                                            Color
+                                        </div>
+
+                                        <div class="size-204 respon6-next">
+                                            <div class="custom-radios" id="colors-radio">
+
                                             </div>
+                                            <div class="alert alert-danger custom-alert">Please select one color</div>
+                                        </div>
+                                    </div>
 
-                                            <input class="mtext-104 cl3 txt-center num-product num-product" type="number" name="num-product" value="0" id="quantity">
+                                    <!-- quantity steper -->
+                                    <div class="flex-w flex-r-m p-b-10">
+                                        <div class="size-203 flex-c-m respon6 label">
+                                            Quantity
+                                        </div>
+                                        <div class="size-204 flex-w flex-m respon6-next">
+                                            <!-- quantity steper -->
+                                            <div class="wrap-num-product flex-w m-r-20 m-tb-10">
+                                                <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                                                    <i class="fs-16 zmdi zmdi-minus"></i>
+                                                </div>
 
-                                            <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-                                                <i class="fs-16 zmdi zmdi-plus"></i>
+                                                <input class="mtext-104 cl3 txt-center num-product num-product"
+                                                    type="number" name="num-product" value="0" id="quantity">
+
+                                                <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                                                    <i class="fs-16 zmdi zmdi-plus"></i>
+                                                </div>
+                                            </div>
+                                            <div class="alert alert-danger custom-alert">Please select the quantity
                                             </div>
                                         </div>
-                                        <div class="alert alert-danger custom-alert">Please select the quantity</div>
-                                    </div>
-                                </div>
-
-                                <!-- size input -->
-                                <div class="flex-w flex-r-m p-b-10">
-                                    <div class="size-203 flex-c-m respon6 label">
-                                        Size
                                     </div>
 
-                                    <div class="size-204 respon6-next">
-                                        <div class="rs1-select2 bor8 bg0">
-                                            <select class="js-select2" name="time" id="size-select">
-
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
+                                    <!-- size input -->
+                                    <div class="flex-w flex-r-m p-b-10">
+                                        <div class="size-203 flex-c-m respon6 label">
+                                            Size
                                         </div>
-                                        <div class="alert alert-danger custom-alert">Please select one size</div>
-                                    </div>
-                                </div>
 
-                                <!-- name input -->
-                                <div class="flex-w flex-r-m p-b-10">
-                                    <div class="size-203 flex-c-m respon6 label">
-                                        Name
-                                    </div>
+                                        <div class="size-204 respon6-next">
+                                            <div class="rs1-select2 bor8 bg0">
+                                                <select class="js-select2" name="time" id="size-select">
 
-                                    <div class="size-204 respon6-next">
-                                        <div class="rs1-select2 bor8 bg0">
-                                            <input type="text" class="custom-input" style="width: 100%; height: 45px" placeholder="Please enter your real full name" id="name">
+                                                </select>
+                                                <div class="dropDownSelect2"></div>
+                                            </div>
+                                            <div class="alert alert-danger custom-alert">Please select one size</div>
                                         </div>
-                                        <div class="alert alert-danger custom-alert">Please enter your name</div>
-                                    </div>
-                                </div>
-
-
-                                <!-- Phone input -->
-                                <div class="flex-w flex-r-m p-b-10">
-                                    <div class="size-203 flex-c-m respon6 label">
-                                        Phone
                                     </div>
 
-                                    <div class="size-204 respon6-next">
-                                        <div class="rs1-select2 bor8 bg0">
-                                            <input type="number" maxlength="11" class="custom-input" style="width: 100%; height: 45px" placeholder="Please enter your real phone number" id="phone">
-
+                                    <!-- name input -->
+                                    <div class="flex-w flex-r-m p-b-10">
+                                        <div class="size-203 flex-c-m respon6 label">
+                                            Name
                                         </div>
-                                        <div class="alert alert-danger custom-alert">Please enter your valid phone number</div>
-                                    </div>
-                                </div>
 
-                                <!-- address input -->
-                                <div class="flex-w flex-r-m p-b-10">
-                                    <div class="size-203 flex-c-m respon6 label">
-                                        Address
-                                    </div>
-
-                                    <div class="size-204 respon6-next">
-                                        <div class="rs1-select2 bor8 bg0">
-                                            <textarea class="custom-input text-area" placeholder="Address for shipment: Governorate - City - Street - Building Number" id="address"></textarea>
-
+                                        <div class="size-204 respon6-next">
+                                            <div class="rs1-select2 bor8 bg0">
+                                                <input type="text" class="custom-input"
+                                                    style="width: 100%; height: 45px"
+                                                    placeholder="Please enter your real full name" id="name">
+                                            </div>
+                                            <div class="alert alert-danger custom-alert">Please enter your name</div>
                                         </div>
-                                        <div class="alert alert-danger custom-alert">Please enter your valid address</div>
                                     </div>
-                                </div>
 
-                                <!-- order button-->
-                                <div class="flex-w flex-r-m p-b-10 order-btn">
-                                    <div class="size-204 flex-w flex-m respon6-next">
-                                        <button class="stext-101 size-101 p-lr-15 button-order" id="button-order">
-                                            MAKE AN ORDER
-                                        </button>
+
+                                    <!-- Phone input -->
+                                    <div class="flex-w flex-r-m p-b-10">
+                                        <div class="size-203 flex-c-m respon6 label">
+                                            Phone
+                                        </div>
+
+                                        <div class="size-204 respon6-next">
+                                            <div class="rs1-select2 bor8 bg0">
+                                                <input type="number" maxlength="11" class="custom-input"
+                                                    style="width: 100%; height: 45px"
+                                                    placeholder="Please enter your real phone number" id="phone">
+
+                                            </div>
+                                            <div class="alert alert-danger custom-alert">Please enter your valid phone
+                                                number</div>
+                                        </div>
                                     </div>
-                                </div>
 
+                                    <!-- address input -->
+                                    <div class="flex-w flex-r-m p-b-10">
+                                        <div class="size-203 flex-c-m respon6 label">
+                                            Address
+                                        </div>
+
+                                        <div class="size-204 respon6-next">
+                                            <div class="rs1-select2 bor8 bg0">
+                                                <textarea class="custom-input text-area"
+                                                    placeholder="Address for shipment: Governorate - City - Street - Building Number"
+                                                    id="address"></textarea>
+
+                                            </div>
+                                            <div class="alert alert-danger custom-alert">Please enter your valid address
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- order button-->
+                                    <div class="flex-w flex-r-m p-b-10 order-btn">
+                                        <div class="size-204 flex-w flex-m respon6-next">
+                                            <button class="stext-101 size-101 p-lr-15 button-order" id="button-order">
+                                                MAKE AN ORDER
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/OwlCarousel2-2.3.4/owl.carousel.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <script>
-        $(".js-select2").each(function() {
-            $(this).select2({
-                minimumResultsForSearch: 20,
-                dropdownParent: $(this).next('.dropDownSelect2')
+        <!--===============================================================================================-->
+        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="vendor/OwlCarousel2-2.3.4/owl.carousel.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="vendor/animsition/js/animsition.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="vendor/bootstrap/js/popper.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="vendor/select2/select2.min.js"></script>
+        <script>
+            $(".js-select2").each(function () {
+                $(this).select2({
+                    minimumResultsForSearch: 20,
+                    dropdownParent: $(this).next('.dropDownSelect2')
+                });
             });
-        });
-
-    </script>
-    <!--===============================================================================================-->
-    <script src="vendor/slick/slick.min.js"></script>
-    <script src="js/slick-custom.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/sweetalert/sweetalert.min.js"></script>
-    <!--
+        </script>
+        <!--===============================================================================================-->
+        <script src="vendor/slick/slick.min.js"></script>
+        <script src="js/slick-custom.js"></script>
+        <!--===============================================================================================-->
+        <script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="vendor/sweetalert/sweetalert.min.js"></script>
+        <!--
     ===============================================================================================-->
-    <script type="module" src="js/main.js"></script>
+        <script type="module" src="js/main.js"></script>
 
-</body>
+    </body>
 
 </html>

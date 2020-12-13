@@ -77,7 +77,7 @@ export function makeAnOrder(
           } else {
             // order saved successfully!, show Modal for order details to user
             Swal.fire({
-              title: "Your order has been received.",
+              title: "Your order was sent successfully.",
               type: "success",
               html:
                 '<hr><h5 style="text-align: left;margin-top:10px"><b>Order Details:</b></h5><br>' +
@@ -94,11 +94,11 @@ export function makeAnOrder(
                 Number(quantity_input) * Number(pro_price) +
                 "</p><br>" +
                 '<p style="text-align: left">Shipping charges: $5</p><hr>' +
-                "<h5><b>Total: $" +
+                "<h4><b>Total: $" +
                 (Number(quantity_input) * Number(pro_price) + 5) +
-                "</b></h5><hr>" +
-                "<p>*Your order will arrive you within (3 Days - 1 Week).</p><br>" +
-                "<p>*In case of any problem in the product, email us.</p>",
+                "</b></h4><hr>" +
+                "<p style='text-align: left; font-size: 12px;'>*Your order will arrive you within 2 Days.</p><br>" +
+                "<p style='text-align: left; font-size: 12px;'>*In case of any problem in the product, get in touch.</p>",
               showCloseButton: true,
               focusConfirm: false,
             });

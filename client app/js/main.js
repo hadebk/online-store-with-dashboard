@@ -72,7 +72,7 @@ import { showProDataInModal } from "./showProDataInModal.js";
           content += "</div>"; // end of hov-img0
           content += '<div class="block2-txt flex-w flex-t p-t-14">';
           content += '<div class="block2-txt-child1 flex-col-l ">';
-          content += '<span class="stext-104 trans-04 js-name-b2 p-b-6">';
+          content += '<span style="color: #b2b2b2;" class="stext-104 trans-04 js-name-b2 p-b-6">';
           content += product_name + "</span>";
           content +=
             '<span class="stext-105">' + "$" + product_price + "</span>";
