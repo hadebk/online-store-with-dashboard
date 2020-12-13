@@ -1,6 +1,5 @@
 import { makeAnOrder } from "./makeAnOrder.js";
 import { showProDataInModal } from "./showProDataInModal.js";
-
 (function ($) {
   "use strict";
   // Your web app's Firebase configuration
@@ -40,11 +39,11 @@ import { showProDataInModal } from "./showProDataInModal.js";
       if (snapshot.exists()) {
         let content = "";
 
-        // clean product box first
+        // First of all => clean products wrapper.
         var list = document.getElementById("products-box");
         while (list.hasChildNodes()) {
           list.removeChild(list.firstChild);
-        }
+        } //////////////////////////////////////////////////
 
         snapshot.forEach(function (data) {
           // get product's data
@@ -84,7 +83,7 @@ import { showProDataInModal } from "./showProDataInModal.js";
         });
         // after load all product => display them them to page
         $(".products-box").append(content);
-        // start-: revers the divs to show last added product first
+        // start-: revers the products to show last added product first
         $.fn.reverseChildren = function () {
           return this.each(function () {
             var $this = $(this);
@@ -94,9 +93,9 @@ import { showProDataInModal } from "./showProDataInModal.js";
           });
         };
         $(".products-box").reverseChildren();
-        // end-: revers the divs to show last added product first
+        // end-: revers the products to show last added product first
         show_modal();
-        // [ set product data in the Modal ]
+        // [ display product data in the Modal ]
         showProDataInModal()
           .then((productPrice) => {
             // 1- inputs and data were loaded successfully to Modal
@@ -112,10 +111,10 @@ import { showProDataInModal } from "./showProDataInModal.js";
             orderInputsValidation();
           })
           .catch((e) => {
-            console.log("promise error: ", e);
+            console.log("Error in display product data in Modal ):", e);
           });
       } else {
-        console.log("no data yet!");
+        console.log("There is no products to display!");
       }
     }); // end of on() "db query"
 
@@ -230,7 +229,6 @@ import { showProDataInModal } from "./showProDataInModal.js";
       [ Make an order, send data to db]*/
 
   $(".button-order").click(function () {
-    console.log([v_color, v_quantity, v_size, v_name, v_phone, v_address]);
     makeAnOrder(
       pro_price,
       v_color,
@@ -247,11 +245,32 @@ import { showProDataInModal } from "./showProDataInModal.js";
   function show_modal() {
     $(".js-show-modal1").on("click", function (e) {
       e.preventDefault();
+      // show 'Quick view' Modal
       $(".js-modal1").addClass("show-modal1");
-      // TODO: color validation (has no event) not work when open modal of another product
+      /**
+       * every time show 'Quick view' Modal:
+       *    1- reset validation flag of inputs (color, quantity, size), because they have no value.
+       *    2- reinvoke showProDataInModal() function to load the details of new clicked product.
+       */
+      // 1- validation flag reset
       v_color = true;
       v_quantity = true;
       v_size = true;
+      // 2- load the details of new clicked product
+      showProDataInModal()
+        .then((productPrice) => {
+          // 1- inputs and data were loaded successfully to Modal
+          console.log("Product details were added successfully!", productPrice);
+          pro_price = productPrice;
+        })
+        .then(() => {
+          // 2- after load the inputs & data to Modal => add validation events to those inputs.
+          console.log("Inputs validations were added successfully!");
+          orderInputsValidation();
+        })
+        .catch((e) => {
+          console.log("promise error: ", e);
+        });
     });
 
     $(".js-hide-modal1").on("click", function () {
