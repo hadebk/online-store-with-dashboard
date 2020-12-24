@@ -5,13 +5,7 @@ import { showProDataInModal } from "./showProDataInModal.js";
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
-    apiKey: "AIzaSyDMUOixvFatJdyfG59AHnSpA-QfWV-bvIY",
-    authDomain: "hadi-online-store.firebaseapp.com",
-    projectId: "hadi-online-store",
-    storageBucket: "hadi-online-store.appspot.com",
-    messagingSenderId: "561361601510",
-    appId: "1:561361601510:web:faf660a66ff8fd92938c27",
-    measurementId: "G-2CTRH4XP7W",
+    // <PUT YOUR FIREBASE CONFIGRATIONS HERE>
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
